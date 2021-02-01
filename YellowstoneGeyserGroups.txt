@@ -1,0 +1,2 @@
+#dataset of Old Faithful Geyser in Yellowstone National Park --Eruptions appear to be clustered into two groups: short eruptions (around 2 minutes) and long eruptions (4-5 minutes) little in between
+ggplot(data = faithful, mapping = aes(x = eruptions)) + geom_histogram(binwidth = 0.25) 
