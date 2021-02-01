@@ -1,0 +1,6 @@
+>xn<-seq(30,95,1)
+>qn<-dnorm(xn,mean=63,sd=5,log=FALSE)
+>lines(xn,qn)
+>lines(xn,.4*qn)
+>ln<-dnorm(xn,mean=44,sd=5,log=FALSE)
+>lines(xn,.26*ln)
