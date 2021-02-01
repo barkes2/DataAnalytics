@@ -1,0 +1,4 @@
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut))
+#height of the bars displays how many observations occurred with each x value.
+dplyr::count():
+#You can compute these values manually with the above command
