@@ -1,0 +1,4 @@
+#Test for Normality-shapiro-wilks
+>shapiro.test(EPI_data$EPI)
+#Shapiro-Wilk normality test
+#data: EPI_data$EPI
