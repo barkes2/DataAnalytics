@@ -1,0 +1,5 @@
+#ggplot2 subscribes to the philosophy that missing values should never go missing
+#ggplot2 does not include them in the plot but does warn that they have been removed:
+ggplot(data = diamonds2, mapping = aes(x = x, y = y)) + geom_point()
+#to remove the warning, set na.rm = TRUE
+ggplot(data = diamonds2, mapping = aes(x = x, y = y)) + geom_point(na.rm = TRUE)
