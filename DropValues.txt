@@ -1,0 +1,3 @@
+#drop the entire row with the strange values
+diamonds2 <- diamonds %>% filter(between(y, 3, 20))
+#Not recommended
