@@ -1,0 +1,2 @@
+#Changing bin widths is important for understanding different trends in data.
+smaller <- diamonds %>% filter (carat <3) ggplot(data = smaller, mapping = aes(x = carat)) + geom_histogram(binwidth = 0.1)
