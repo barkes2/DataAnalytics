@@ -1,0 +1,9 @@
+#To make it easy to see the unusual values, we need to zoom into small values of the y-axis
+coord_cartesian():
+ggplot(diamonds) + geom_histogram(mapping = aes(x=y), binwidth = 0.5) + coord_cartesian(ylim = c(0,50))
+#(coord_cartesian() also has an xlim() argument for when you need to zoom into the x-axis. ggplot2 also has xlim() and ylim() functions that work slightly differently: they throw away the data outside the limits.)
+#three unusual values: 0, 30, and 60 and we pluck them out with dplyr:
+unusual <- diamonds %>%
+filter(y < 3 | y > 20) %>%
+arrange(y)
+unusual
