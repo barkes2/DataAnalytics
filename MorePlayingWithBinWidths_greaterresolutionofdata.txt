@@ -1,0 +1,2 @@
+#restricting binwidth for diamonds from 0.1 to 0.01 for greater resolution
+ggplot(data = smaller, mapping = aes(x = carat)) + geom_histogram(binwidth = 0.01)
