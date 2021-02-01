@@ -1,0 +1,2 @@
+#distribution of the Y variable from the diamonds dataset. The only evidence of outliers is the unusually wide limits on the wide limits on the y-axis:
+ggplot(diamonds) + geom_histogram(mapping = aes(x = y), binwidth = 0.5)
