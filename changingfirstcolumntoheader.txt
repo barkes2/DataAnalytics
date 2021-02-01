@@ -1,0 +1,6 @@
+#How to change the first row to be the header in R?
+names(data_2010EPI) <- as.matrix(data_2020EPI[1, ])
+data_2010EPI <- data_2010EPI[-1, ]
+data_2010EPI[] <- lapply(data_2010EPI, function(x) type.convert(as.character(x))
+data_2010EPI
+View(data_2010EPI)
