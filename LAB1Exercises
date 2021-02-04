@@ -1,0 +1,25 @@
+#Excercise 1: fitting a distribution
+#do the same exploration and fitting for another 2 variables in the EPI_data
+#(i.e. primary variables (DALY, WATER_H, ...)
+#Try fitting other distributions - i.e. as ecdf or qq-
+boxplot(EPI,DALY) #Comparing distributions
+qqplot(EPI,DALY)
+#intercompare: EPI, ENVHEALTH, ECOSYSTEM, DALY, AIR_H, WATER_H, AIR_EWATER_E, BIODIVERSITY **(subject to possible filtering)
+#Note the 2010 and 2016 datasets
+#See archive "alldist.zip" or individual files in /distribution
+#Excel files for dif distributions; expanded in the folder: e.g. lognorm.xls
+help(distributions) #In R
+
+#Excercise 2 Conditional Filtering (below)
+EPILand<-EPI[!Landlock]
+Eland <- EPILand[!is.na(EPILand)]
+hist(ELand)
+hist(ELand, seq(30., 95., 1.0), prob=TRUE)
+#Repeat Excersize 1 look at: No_surface_water, Desert and High_Population_Density
+
+#My Excercise: how to filter on EPI_regions or GEO_subregion?
+#E.g. EPI_South_Asia <- EPI[<what is this>]
+#GPW3_GRUMP - repeat: the reading in, then exploration/summary, plots, histograms, distributions, filtering
+#water-treatment.csv #water_treatment 
+
+#Lab objectives: Get familiar with Distributions, Populations, Fitting, & Creating Data Frames in R
