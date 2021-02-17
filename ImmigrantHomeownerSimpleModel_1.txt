@@ -23,3 +23,30 @@ help(lm)
 mm<-lm(Homeowners ~ Immigrant)
 mm
 plot(Immigrant,Homeowners)
+abline(mm)
+abline(mm, col=2, lwd=3)
+#col is color of the line
+#lwd is the line width
+
+summary(mm)
+attributes(mm)
+mm$coefficients
+
+
+#Can we see if there is a relation between immigrant population and the mean income, the overall population, % of people who own their own homes, and the population density
+#To do so we solve the set of 7 linear equations of the form: %_immigrant = a x Income + b x Population + c x Homeowners/Population + d x Population/area + e
+
+#Figuring out how to include multiple independent variables
+HP<-Homeowners/Population
+PD<-Population/area
+#adding multiple variables with "+" sign after defining HP (Homeowners Population) and PD (Population Density)
+mm<-lm(Immigrants~Income+Population+HP+PD)
+summary(mm)
+#Call: lm(formula = Immigrants ~ Income + Population + HP + PD)
+
+#Multivariate regression
+cm<-coef(mm)
+cm
+#bad plot because regression line is "OVERFITTING"
+
+#K nearest neighbors (knn) - Method of classifying objects based on closest training examples in the feature space; An object is classified by a majority vote of its neighbors; always positive integer 
