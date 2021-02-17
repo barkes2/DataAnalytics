@@ -1,0 +1,25 @@
+#here we look at the relationship betweem homeowners and immigrants
+multivariate <- read.csv("locationoffile.csv)
+attach(multivariate)
+mm<-lm(Homeowners~Immigrant)
+#lm is read the documentation
+#Homeowners are dependent variable~Immigrant is the independent variable (is a percentage value so it has decimal values and not whole numbers)
+mm
+#=====================================
+#Full code as copied from slides
+
+#Read the csv file
+multivariate <- read.csv("~/Downloads/multivariate.csv")
+attach(multivariate)
+names(multivariate)
+multivariate
+
+#create some scatterplots
+plot(Income, Immigrant, main = "Scatterplot")
+plot(Immigrant, Homeowners)
+
+#Fitting Linear Models using "lm" function
+help(lm)
+mm<-lm(Homeowners ~ Immigrant)
+mm
+plot(Immigrant,Homeowners)
