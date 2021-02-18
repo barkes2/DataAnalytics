@@ -16,7 +16,6 @@ fivenum(E,na.rm=TRUE) #similar to above: returns Tukey's five number summary for
 #values should be:
 #Min.   1st Qu.   Median    Mean    3rd Qu.   Max.
 #32.10  48.60     59.20     58.37   67.60     93.50
-
 #how do we find the mode?
 # a)create a function
 mode<-function(v) {
@@ -31,8 +30,39 @@ print(result)
 #the mode of EPI is:
 #> print(result)
 #[1] 44.6
+#Central Tendency Values of the EPI column: 
+#Mean is 58.37; Median is 59.20; and the Mode is 44.6
 
 # 2) Generate Central Tendency values for DALY variable
+getwd()
+EPI_data<-read.csv("EPI_data.csv")#reads in the csv file from the pathway you oultine. check from "getwd()"
+attach(EPI_data) #sets the default object
+View(EPI_data) #opens window with EPI data
+fix(EPI_data) #opens editing window
+DALY #displays values from the DALY column in the EPI_data; lots of NA values to be masked
+tf <- is.na(DALY) #records true value as NA
+D<-DALY[!tf] #filters out these NA values making a new array
+D #just so you can view the new array and show that it is missing NA values
+summary(D) #displays stats about the EPI data in array without NA values
+fivenum(D,na.rm=TRUE) #similar to above: returns Tukey's five number summary for the data (min,lower hinge, median, upper-hinge, max)
+#values should be:
+#Min.   1st Qu. Median  Mean    3rd Qu. Max. 
+#0.00   37.19   60.35   53.94   71.97   91.50 
+#how do we find the mode?
+# a)create a function
+mode<-function(z) {
+  uniqv<-(z)
+  uniqv[which.max(tabulate(match(z,uniqv)))]
+}
+# b) create the vector with numbers
+z<-DALY[!tf]
+# c) calculate the mode using the user function
+result<-mode(z)
+print(result)
+#> print(result)
+#[1] 86.86
+#Central Tendency Values of the DALY column:
+#Mean is 53.94; Median is 60.35; and the Mode is 86.86
 
 #Generate Histograms for EPI and DALY variables in the EPI 2010 dataset
 # 1) Generate the Histogram for EPI variable
