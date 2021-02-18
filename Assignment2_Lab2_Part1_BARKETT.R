@@ -32,7 +32,7 @@ print(result)
 #[1] 44.6
 #Central Tendency Values of the EPI column: 
 #Mean is 58.37; Median is 59.20; and the Mode is 44.6
-
+#=========================================================================================================================================
 # 2) Generate Central Tendency values for DALY variable
 getwd()
 EPI_data<-read.csv("EPI_data.csv")#reads in the csv file from the pathway you oultine. check from "getwd()"
@@ -63,15 +63,42 @@ print(result)
 #[1] 86.86
 #Central Tendency Values of the DALY column:
 #Mean is 53.94; Median is 60.35; and the Mode is 86.86
-
+#=========================================================================================================================================
 #Generate Histograms for EPI and DALY variables in the EPI 2010 dataset
 # 1) Generate the Histogram for EPI variable
+EPI_data<-read.csv("2010EPI_data.csv") #reads in .csv file from the pathway you outline. check your working directory with command "getwd()"
+#Note: replace default data frame name - cannot start with numbers! Munging
+#Note: replace <path> with either a directory path or use setwd("<path>")
+attach(EPI_data) #set the 'default' object
+EPI #prints out values EPI_data$EPI
+tf <- is.na(EPI) #records True value is NA
+E <- EPI[!tf] #filters out NA values, new array
+hist(EPI)
+hist(EPI, seq(30., 95., 1.0), prob=TRUE)
+lines(density(EPI,na.rm=TRUE,bw=1.)) # or try bw="SJ"
+lines(density(EPI,na.rm=TRUE,bw="SJ"))
+rug(EPI)
+
 # 2) Genreate the Histogram for the DALY variable
+EPI_data<-read.csv("2010EPI_data.csv") #reads in .csv file from the pathway you outline. check your working directory with command "getwd()"
+#Note: replace default data frame name - cannot start with numbers! Munging
+#Note: replace <path> with either a directory path or use setwd("<path>")
+attach(EPI_data) #set the 'default' object
+DALY #prints out values EPI_data$EPI
+tf <- is.na(DALY) #records True value is NA
+D <- DALY[!tf] #filters out NA values, new array
+hist(DALY)
+hist(DALY, seq(30., 95., 1.0), prob=TRUE)
+lines(density(DALY,na.rm=TRUE,bw=1.)) # or try bw="SJ"
+lines(density(DALY,na.rm=TRUE,bw="SJ"))
+rug(DALY)
+
+#below two are in notes and are shown as running; unsure if part of lab but here they are
 boxplot(ENVHEALTH,ECOSYSTEM)
 #Generates the box plot for the variables ENVHEALTH and ECOSYSTEM
 qqplot(ENVHEALTH,ECOSYSTEM)
 #generates the Q-Q plot for the variables ENVHEALTH and ECOSYSTEM
-
+#========================================================================================================================================
 #Regression Exercises:
 #Using the EPI (under /EPI on web) dataset find the single most important factor in increasing the EPI in a given region
 
