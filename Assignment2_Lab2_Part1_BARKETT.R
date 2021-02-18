@@ -101,22 +101,54 @@ qqplot(ENVHEALTH,ECOSYSTEM)
 #========================================================================================================================================
 #Regression Exercises:
 #Using the EPI (under /EPI on web) dataset find the single most important factor in increasing the EPI in a given region
-
 #Linear and least-squares
 boxplot(ENVHEALTH,DALY,AIR_H,WATER_H)
 lmENVH<-lm(ENVHEALTH~DALY+AIR_H+WATER_H)
 lmENVH
+#Call:
+#  lm(formula = ENVHEALTH ~ DALY + AIR_H + WATER_H)
+#
+#Coefficients:
+#(Intercept)   DALY         AIR_H        WATER_H  
+#-1.458e-05    5.000e-01    2.500e-01    2.500e-01  
 summary(lmENVH)
+#Call:
+#  lm(formula = ENVHEALTH ~ DALY + AIR_H + WATER_H)
+#
+#Residuals:
+#  Min         1Q     Median         3Q        Max 
+#-0.0073210 -0.0027069 -0.0000915  0.0022285  0.0053404 
+#
+#Coefficients:
+#  Estimate Std. Error   t value Pr(>|t|)    
+#(Intercept) -1.458e-05  6.520e-04    -0.022    0.982    
+#DALY         5.000e-01  1.988e-05 25147.716   <2e-16 ***
+#  AIR_H        2.500e-01  1.276e-05 19593.273   <2e-16 ***
+#  WATER_H      2.500e-01  1.816e-05 13764.921   <2e-16 ***
+#  ---
+#  Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#
+#Residual standard error: 0.003015 on 159 degrees of freedom
+#Multiple R-squared:      1,	Adjusted R-squared:      1 
+#F-statistic: 3.77e+09 on 3 and 159 DF,  p-value: < 2.2e-16
 cENVH<-coef(lmENVH)
-
+cENVH
+#(Intercept)          DALY         AIR_H       WATER_H 
+#-1.458233e-05  5.000248e-01  2.499979e-01  2.499861e-01 
+#========================================================================================================================================
 #Predict
 DALYNEW<-c(seq(5,95,5))
-AIR_HNEW<-C(seq(5,95,5))
-WATER_HNEW<-C(seq(5,95,5))
+AIR_HNEW<-c(seq(5,95,5))
+WATER_HNEW<-c(seq(5,95,5))
 NEW<-data.frame(DALYNEW,AIR_HNEW,WATER_HNEW)
 pENV<-predict(lmENVH,NEW,interval="prediction")
 cENV<-predict(lmENVH,NEW,interval="confidence")
 
 #repeat these for the variables AIR_E and CLIMATE
-
+DALYNEW<-c(seq(5,95,5))
+AIR_HNEW<-c(seq(5,95,5))
+WATER_HNEW<-c(seq(5,95,5))
+NEW<-data.frame(DALYNEW,AIR_HNEW,WATER_HNEW)
+pENV<-predict(lmENVH,NEW,interval="prediction")
+cENV<-predict(lmENVH,NEW,interval="confidence")
 #Due on March 4th by 11:59 on LMS link available on Feb 25th
