@@ -28,3 +28,17 @@ mean((mpg-predict(lm.fit2,Auto))[-train]^2)
 lm.fit3<-lm(mpg~poly(horsepower,3),data=Auto,subset=train)
 mean((mpg-predict(lm.fit3,Auto))[-train]^2)
 #cubic is still lower at 18.79
+set.seed(2)  #new seed eg new sample set
+train=sample(392,196)
+lm.fit<-lm(mpg~horsepower,data=Auto,subset=train)
+mean((mpg-predict(lm.fit,Auto))[-train]^2)
+#MSE/error rate for linear is 25.73 higher than linear in first
+#Quadratic regression
+lm.fit2<-lm(mpg~poly(horsepower,2),data=Auto,subset=train)
+mean((mpg-predict(lm.fit2,Auto))[-train]^2)
+#error rate 20.43
+lm.fit3<-lm(mpg~poly(horsepower,3),data=Auto,subset=train)
+mean((mpg-predict(lm.fit3,Auto))[-train]^2)
+#error rate 20.39
+#quadratic model yields the lowest error,however, cubic yields small improvement
+#over a linear function, little evidence to favor cubic function model of HP
