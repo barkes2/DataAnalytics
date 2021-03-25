@@ -12,3 +12,9 @@ colnames(winedata)<-c("Cvs", "Alcohol","Malic_Acid", "Ash", "Alkalinity_of_Ash",
 head(winedata)
 help("heatmap")
 heatmap(cor(winedata),Rowv=NA,Colv=NA)
+cultivar_classes<-factor(winedata$Cvs)
+cultivar_classes
+winedata_PCA<-prcomp(scale(winedata[,-1]))
+summary(winedata_PCA)
+#we can see PC1 gives the 36.2% cumulative contribution, which indicates
+#that PC1 represents 36.2% variance
